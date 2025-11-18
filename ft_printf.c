@@ -12,34 +12,47 @@
 
 #include "ft_printf.h"
 
-int ft_printf(const char *format, ...)
+static int	handle_format(char c, va_list args)
 {
-    va_list args;
-    int i = 0;
-    int count = 0;
+	if (c == 'c')
+		return (print_char(args));
+	else if (c == 's')
+		return (print_str(args));
+	else if (c == 'p')
+		return (print_pointer(args));
+	else if (c == 'd' || c == 'i')
+		return (print_int(args));
+	else if (c == 'u')
+		return (print_unsigned(args));
+	else if (c == 'x')
+		return (print_hex_lower(args));
+	else if (c == 'X')
+		return (print_hex_upper(args));
+	else if (c == '%')
+		return (ft_putchar('%'));
+	return (0);
+}
 
-    va_start(args, format);
+int	ft_printf(const char *format, ...)
+{
+	va_list	args;
+	int		i;
+	int		count;
 
-    while(format[i] != '\0')
-    {
-        if (format[i] == '%')
-        {
-            i++;
-
-            if(format[i] == 'c')
-                count += print_char(args);
-
-            else if (format[i] == 's')
-                count += print_str(args);    
-
-            else if (format[i] == '%')
-                count += ft_putchar('%');    
-            
-        }
-        else
-        {
-            count += ft_putchar(format[i]);
-            i++;
-        }
-    }
+	va_start(args, format);
+	i = 0;
+	count = 0;
+	while (format[i])
+	{
+		if (format[i] == '%')
+		{
+			i++;
+			count += handle_format(format[i], args);
+		}
+		else
+			count += ft_putchar(format[i]);
+		i++;
+	}
+	va_end(args);
+	return (count);
 }

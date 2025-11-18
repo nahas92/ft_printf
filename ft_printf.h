@@ -11,14 +11,20 @@
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
-#define FT_PRINTF_H
+# define FT_PRINTF_H
 
-#include <stdarg.h>
-#include <unistd.h>
-#include "./libft/libft.h"
+# include "./libft/libft.h"
+# include <stdarg.h>
+# include <unistd.h>
 
-int ft_printf(const char *format, ...);
-int print_char(va_list args);
-int ft_putchar(char c);
+int	ft_printf(const char *format, ...);
+int	ft_putchar(char c);
+int	print_char(va_list args);
+int	print_str(va_list args);
+int	print_pointer(va_list args);
+int	print_int(va_list args);
+int	print_unsigned(va_list args);
+int	print_hex_lower(va_list args);
+int	print_hex_upper(va_list args);
 
 #endif
