@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_char.c                                       :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalnahas <aalnahas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/19 17:34:20 by aalnahas          #+#    #+#             */
-/*   Updated: 2025/11/19 17:34:23 by aalnahas         ###   ########.fr       */
+/*   Created: 2025/10/29 10:43:50 by aalnahas          #+#    #+#             */
+/*   Updated: 2025/11/02 18:37:05 by aalnahas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	print_char(va_list args)
+int	ft_isprint(int c)
 {
-	char	c;
-
-	c = va_arg(args, int);
-	return (ft_putchar(c));
+	if (c >= 32 && c <= 126)
+		return (1);
+	else
+		return (0);
 }

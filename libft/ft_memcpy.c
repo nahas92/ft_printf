@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_char.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalnahas <aalnahas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/19 17:34:20 by aalnahas          #+#    #+#             */
-/*   Updated: 2025/11/19 17:34:23 by aalnahas         ###   ########.fr       */
+/*   Created: 2025/10/29 10:46:24 by aalnahas          #+#    #+#             */
+/*   Updated: 2025/11/08 16:03:50 by aalnahas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	print_char(va_list args)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	char	c;
+	size_t				i;
+	unsigned char		*d;
+	const unsigned char	*s;
 
-	c = va_arg(args, int);
-	return (ft_putchar(c));
+	i = 0;
+	d = (unsigned char *)dst;
+	s = (const unsigned char *)src;
+	if (dst == NULL && src == NULL)
+		return (NULL);
+	while (i < n)
+	{
+		d[i] = s[i];
+		i++;
+	}
+	return (dst);
 }

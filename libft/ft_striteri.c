@@ -1,21 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_char.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalnahas <aalnahas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/19 17:34:20 by aalnahas          #+#    #+#             */
-/*   Updated: 2025/11/19 17:34:23 by aalnahas         ###   ########.fr       */
+/*   Created: 2025/11/05 13:36:58 by aalnahas          #+#    #+#             */
+/*   Updated: 2025/11/10 16:10:40 by aalnahas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	print_char(va_list args)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	char	c;
+	size_t	i;
 
-	c = va_arg(args, int);
-	return (ft_putchar(c));
+	i = 0;
+	if (s == NULL || f == NULL)
+		return ;
+	while (s[i] != '\0')
+	{
+		f(i, &s[i]);
+		i++;
+	}
 }
+
+// void  to_upper(unsigned int i, char *c)
+// {
+// 	(void)i;
+// 	*c = ft_toupper(*c);
+// }
+
+// int main()
+// {
+// 	char str[] = "hello";
+// 	 ft_striteri(str, to_upper);
+// 	 printf("%s\n", str);
+// }

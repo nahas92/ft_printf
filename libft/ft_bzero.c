@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_char.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalnahas <aalnahas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/19 17:34:20 by aalnahas          #+#    #+#             */
-/*   Updated: 2025/11/19 17:34:23 by aalnahas         ###   ########.fr       */
+/*   Created: 2025/10/29 10:45:51 by aalnahas          #+#    #+#             */
+/*   Updated: 2025/11/08 16:04:37 by aalnahas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	print_char(va_list args)
+void	ft_bzero(void *s, size_t n)
 {
-	char	c;
-
-	c = va_arg(args, int);
-	return (ft_putchar(c));
+	ft_memset(s, 0, n);
 }
+
+// int main()
+// {
+// 	char str[] = "hel";
+// 	ft_bzero(str, 3);
+// 	printf("%s\n", str);
+// }

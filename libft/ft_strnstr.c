@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_str.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalnahas <aalnahas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/19 17:35:06 by aalnahas          #+#    #+#             */
-/*   Updated: 2025/11/19 17:35:09 by aalnahas         ###   ########.fr       */
+/*   Created: 2025/10/29 11:49:48 by aalnahas          #+#    #+#             */
+/*   Updated: 2025/10/31 15:31:21 by aalnahas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	print_str(va_list args)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	char	*str;
-	int		count;
-	int		i;
+	size_t	i;
+	size_t	j;
 
-	str = va_arg(args, char *);
-	if (str == NULL)
-		str = "(null)";
+	if (needle[0] == '\0')
+		return ((char *)haystack);
 	i = 0;
-	count = 0;
-	while (str[i])
+	while (i < len && haystack[i] != '\0')
 	{
-		ft_putchar(str[i]);
-		count++;
+		j = 0;
+		while (i + j < len && haystack[i + j] != '\0'
+			&& haystack[i + j] == needle[j])
+		{
+			j++;
+			if (needle[j] == '\0')
+				return ((char *)(haystack + i));
+		}
 		i++;
 	}
-	return (count);
+	return (NULL);
 }

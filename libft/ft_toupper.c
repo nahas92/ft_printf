@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_char.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalnahas <aalnahas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/19 17:34:20 by aalnahas          #+#    #+#             */
-/*   Updated: 2025/11/19 17:34:23 by aalnahas         ###   ########.fr       */
+/*   Created: 2025/10/29 11:43:24 by aalnahas          #+#    #+#             */
+/*   Updated: 2025/10/29 11:44:02 by aalnahas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	print_char(va_list args)
+int	ft_toupper(int c)
 {
-	char	c;
-
-	c = va_arg(args, int);
-	return (ft_putchar(c));
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	else
+		return (c);
 }

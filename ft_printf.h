@@ -6,7 +6,7 @@
 /*   By: aalnahas <aalnahas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 18:16:34 by aalnahas          #+#    #+#             */
-/*   Updated: 2025/11/15 19:24:40 by aalnahas         ###   ########.fr       */
+/*   Updated: 2025/11/19 18:39:08 by aalnahas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "./libft/libft.h"
 # include <stdarg.h>
 # include <unistd.h>
+# include <stdio.h>
 
 int	ft_printf(const char *format, ...);
 int	ft_putchar(char c);

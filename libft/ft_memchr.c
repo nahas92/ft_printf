@@ -1,21 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_char.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalnahas <aalnahas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/19 17:34:20 by aalnahas          #+#    #+#             */
-/*   Updated: 2025/11/19 17:34:23 by aalnahas         ###   ########.fr       */
+/*   Created: 2025/10/29 10:52:42 by aalnahas          #+#    #+#             */
+/*   Updated: 2025/11/10 16:43:37 by aalnahas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	print_char(va_list args)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char	c;
+	size_t			i;
+	unsigned char	*p;
 
-	c = va_arg(args, int);
-	return (ft_putchar(c));
+	i = 0;
+	p = (unsigned char *)s;
+	while (i < n)
+	{
+		if (p[i] == (unsigned char)c)
+			return (p + i);
+		i++;
+	}
+	return (NULL);
 }
+
+// #include <stdio.h>
+// int main()
+// {
+//     unsigned char data[] = {1, 2, 3, 4, 5};
+//     unsigned char *p;
+
+//     p = ft_memchr(data, 6, 5);
+
+//     printf("%d\n", *p);
+// }

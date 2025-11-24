@@ -6,7 +6,7 @@
 /*   By: aalnahas <aalnahas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 18:16:42 by aalnahas          #+#    #+#             */
-/*   Updated: 2025/11/15 19:43:27 by aalnahas         ###   ########.fr       */
+/*   Updated: 2025/11/19 18:53:20 by aalnahas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,10 @@ int	ft_printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			count += handle_format(format[i], args);
+			if (format[i] != '\0')
+				count += handle_format(format[i], args);
+			else
+				break ;
 		}
 		else
 			count += ft_putchar(format[i]);
